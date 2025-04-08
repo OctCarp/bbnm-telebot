@@ -1,4 +1,5 @@
 mod commands;
+mod downloader;
 mod handlers;
 mod parsers;
 mod services;
@@ -7,11 +8,11 @@ mod utils;
 use crate::commands::commands_enum::SimpleCommand;
 use crate::commands::simple_commands_handler::simple_commands_handler;
 
+use crate::downloader::bili_down::down_bv;
 use crate::handlers::text_handler::plain_text_handler;
 use teloxide::prelude::*;
 
-#[tokio::main]
-async fn main() {
+async fn run() {
     pretty_env_logger::init();
     log::info!("Starting b23nm Bot...");
 
@@ -45,4 +46,21 @@ async fn main() {
         .build()
         .dispatch()
         .await;
+}
+
+#[tokio::main]
+async fn main() {
+    run().await;
+
+    // simp_test().await;
+}
+
+async fn simp_test() {
+    down_bv("BV1kFd7YAEcy".to_string()).await;
+
+    // download_bili_video("https://www.bilibili.com/video/BV1Dx411j7XV/").await;
+
+    // down_bv("BV1Dx411j7XV".to_string()).await;
+    // let s=get_video_info("BV1Dx411j7XV").await.unwrap();
+    // println!("{:?}", s);
 }

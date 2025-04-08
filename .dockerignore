@@ -1,0 +1,25 @@
+# git
+.git
+.gitignore
+
+#
+target/
+
+# logs
+*.log
+*.tmp
+*.swp
+
+# IDE
+*.iml
+.idea/
+.vscode/
+
+.DS_Store
+Thumbs.db
+
+.env
+*.secret
+
+
+
